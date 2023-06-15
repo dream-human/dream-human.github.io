@@ -1,7 +1,7 @@
-@article{kolotouros2023dreamhuman,<br />
-&nbsp;&nbsp;title={DreamHuman: Animatable 3D Avatars from Text},<br />
-&nbsp;&nbsp;author={Kolotouros, Nikos and Alldieck, Thiemo and Zanfir, Andrei
-and Bazavan, Eduard Gabriel and Fieraru, Mihai and Sminchisescu, Cristian},<br />
-&nbsp;&nbsp;booktitle={arXiv preprint arxiv:****.*****},<br />
-&nbsp;&nbsp;year={2023}<br />
+@article{kolotouros2023dreamhuman,
+title={DreamHuman: Animatable 3D Avatars from Text},
+author={Kolotouros, Nikos and Alldieck, Thiemo and Zanfir, Andrei
+and Bazavan, Eduard Gabriel and Fieraru, Mihai and Sminchisescu, Cristian},
+booktitle={arXiv preprint arxiv:****.*****},
+year={2023}
 }
