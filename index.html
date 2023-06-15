@@ -1,0 +1,196 @@
+<html>
+<head>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  
+    gtag('config', 'G-YCKMSNSCWP');
+  </script>
+  <!--<meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>-->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
+
+  <meta property="og:site_name" content="DreamHuman: Animatable 3D Avatars from Text" />
+  <meta property="og:type" content="video.other" />
+  <meta property="og:title" content="DreamHuman: Animatable 3D Avatars from Text" />
+  <meta property="og:description" content="DreamHuman: Animatable 3D Avatars from Text, 2023." />
+  <meta property="og:url" content="https://dream-human.github.io/" />
+  <meta property="og:image" content="https://dream-human.github.io/assets/samples.png" />
+
+  <meta property="article:publisher" content="https://dreamfusion3d.github.io/" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="DreamFusion: Text-to-3D using 2D Diffusion" />
+  <meta name="twitter:description" content="We generate animatable 3D avatars from textual descriptions." />
+  <meta name="twitter:url" content="https://dreamfusion3d.github.io/" />
+  <meta name="twitter:image" content="https://dreamfusion3d.github.io/assets/images/dreamfusion_samples.png" />
+
+  <title>DreamHuman: Animatable 3D Avatars from Text</title>
+  <link href="assets/css/style.css" rel="stylesheet"/>
+  <script src="assets/js/video_comparison.js"></script>
+  <link href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css"
+        rel="stylesheet">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"
+          type="module"></script>
+  <script async id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"
+          type="text/javascript">
+  </script>
+</head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YCKMSNSCWP"></script>
+
+<body>
+<div class="content">
+  <h1>
+    <strong
+    >DreamHuman: Animatable 3D Avatars from Text</strong
+    >
+  </h1>
+  <p id="authors">
+    <a href="https://www.nikoskolot.com/">Nikos Kolotouros</a>
+    <a href="https://research.google/people/107250/">Thiemo Alldieck</a>
+    <a href="https://scholar.google.com/citations?user=8lmzWycAAAAJ&hl=en&oi=ao">Andrei Zanfir</a>
+    <br>
+    <a href="https://research.google/people/107659/">Eduard Gabriel Bazavan</a>
+    <a href="https://mihaifieraru.github.io/">Mihai Fieraru</a>
+    <a href="https://research.google/people/CristianSminchisescu/">Cristian Sminchisescu</a><br/>
+    <br/>
+    <span style="font-size: 24px">Google Research </span>
+  </p>
+  <br/>
+  <p style="text-align: center">
+    <a href="https://arxiv.org/abs/****.*****" target="_blank">[Paper]</a>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="assets/bibtex.txt" target="_blank">[BibTeX]</a>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="avatar_gallery.html" target="_blank">[Avatar Gallery]</a>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="animation_gallery.html" target="_blank">[Animation Gallery]</a>
+  </p>
+  <br/>
+  <div>
+    <video autoplay loop muted playsinline width="100%">
+      <source src="assets/videos/animation_clip.mp4" type="video/mp4"></source>
+    </video>
+  </div>
+  <h6 style="text-align: center">
+    <em>
+      We generate realistic, animatable 3D avatars just from textual descriptions.
+    </em>
+  </h6>
+  <br/>
+  <div class="row">
+    <div>
+      <div class="video-compare-container" id="teaserDiv">
+        <video autoPlay class="video" id="teaser" loop muted onplay="resizeAndPlay(this)"
+               playsinline src="assets/videos/teaser_video_360_medium.mov"></video>
+        <canvas class="videoMerge" height=0 id="teaserMerge"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <h6 style="text-align: center">
+    <em>Example 360&deg renderings in the rest pose.
+    </em>
+  </h6>
+
+</div>
+<div class="content">
+  <h2 style="text-align: center">Abstract</h2>
+  <p>
+    We present <i>DreamHuman</i>, a method to generate realistic animatable 3D human avatar models
+    solely from textual descriptions.
+    Recent text-to-3D methods have made considerable strides in generation, but are still lacking in
+    important aspects.
+    Control and often spatial resolution remain limited, existing methods produce fixed rather than
+    animated 3D human models, and anthropometric consistency for complex structures like people
+    remains a challenge.
+    <i>DreamHuman</i> connects large text-to-image synthesis models, neural radiance fields, and
+    statistical human body models in a novel modeling and optimization framework. This makes it
+    possible to generate dynamic 3D human avatars with high-quality textures and learned,
+    instance-specific, surface deformations.
+    We demonstrate that our method is capable to generate a wide variety of animatable, realistic 3D
+    human models from text. Our 3D models have diverse appearance, clothing, skin tones and body
+    shapes, and significantly outperform both generic text-to-3D approaches and previous text-based
+    3D avatar generators in visual fidelity.
+
+  </p>
+</div>
+<div class="content">
+  <h2 style="text-align: center">Method</h2>
+  <p>
+    Given a text prompt, such as <i><q>a woman wearing a dress</q></i>, we generate a realistic,
+    animatable 3D avatar whose appearance and body shape match the textual description.
+    A key component in our pipeline is a deformable and pose-conditioned NeRF model learned and
+    constrained using imGHUM, an implicit statistical 3D human pose and shape model.
+    At each training step, we synthesize our avatar based on randomly sampled poses and render it
+    from random viewpoints.
+    The optimisation of the avatar structure is guided by the Score Distillation Sampling loss
+    powered by a text-to-image generation model.
+    We rely on imGHUM to add pose control and inject anthropomorphic priors in the avatar
+    optimisation process.
+    During training, we optimise over the NeRF, body shape, and spherical harmonics illumination
+    parameters.
+  </p>
+  <br/>
+  <img
+    class="teaser-img"
+    src="assets/images/method.png"
+    style="width: 100%"
+  />
+</div>
+<div class="content">
+  <h2 style="text-align: center"> Generated Avatars</h2>
+  <p>
+    Here we show 360 renderings of our generated 3D avatars for a variety of text prompts.
+    For additional results, you can look at our <a href="avatar_gallery.html">Avatar Gallery</a>.
+  </p>
+  <div class="card-columns captioned_videos list" id="thumbnails_360"></div>
+</div>
+
+<div class="content">
+  <h2 style="text-align: center"> Animations</h2>
+  <p>
+    Here we show short animations using our model for different text prompts.
+    For additional results, you can look at our <a href="animation_gallery.html">Animation Gallery</a>.
+  </p>
+  <div class="card-columns captioned_videos list" id="thumbnails_animations"></div>
+</div>
+<!--<script src="js/gallery_animations.js"></script>-->
+<script src="assets/js/make_videos.js"></script>
+<script>
+  make_video_grid(videoPaths360, "assets/videos/360_rgbn/", "thumbnails_360", 6);
+  make_video_grid(videoPathsAnimations, "assets/videos/animations/", "thumbnails_animations", 6);
+</script>
+
+
+<div class="content">
+  <h2>BibTex</h2>
+  <code>
+    @article{kolotouros2023dreamhuman,<br/>
+    &nbsp;&nbsp;title={DreamHuman: Animatable 3D Avatars from Text},<br/>
+    &nbsp;&nbsp;author={Kolotouros, Nikos and Alldieck, Thiemo and Zanfir, Andrei
+    and Bazavan, Eduard Gabriel and Fieraru, Mihai and Sminchisescu, Cristian},<br/>
+    &nbsp;&nbsp;booktitle={arXiv preprint arxiv:2208.12242},<br/>
+    &nbsp;&nbsp;year={2023}<br/>
+    }
+  </code>
+</div>
+
+<div class="content" id="acknowledgements">
+  <p>
+    <strong>Acknowledgements</strong>: This website was based on
+    <a href="https://dreambooth.github.io/">DreamBooth</a>, <a href="https://dreamfusion3d.github.io/">DreamFusion</a>, and <a href=https://dorverbin.github.io/refnerf/>Ref-NeRF</a>.
+  </p>
+</div>
+
+</body>
+</html>
