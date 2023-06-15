@@ -7,7 +7,7 @@ body {
   background-color: #fff;
 }
 .content {
-  width: 1000px;
+  max-width: 1000px;
   padding: 25px 50px;
   margin: 25px auto;
   background-color: white;
@@ -16,7 +16,7 @@ body {
   font-family: "Google Sans";
 }
 .contentblock {
-  width: 950px;
+  max-width: 950px;
   margin: 0 auto;
   padding: 0;
   border-spacing: 25px 0;
